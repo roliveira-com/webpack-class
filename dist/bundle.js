@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 1);
@@ -108,10 +108,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__model_message_model___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__model_message_model__);
 
 
-const m = new __WEBPACK_IMPORTED_MODULE_0__model_message_model___default.a();
+const m = new __WEBPACK_IMPORTED_MODULE_0__model_message_model___default.a('wow');
 console.dir(m);
 console.log(m);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.map
