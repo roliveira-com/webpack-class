@@ -6,9 +6,8 @@
     "rules": {
         "no-underscore-dangle": 0,
         "no-console": 0,
-        "max-len": [
-            "error", 80
-        ],
-        "indent": 0
+        "indent": 0,
+        "no-undef": 0,
+        "max-len": 0
     }
 }

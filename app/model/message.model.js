@@ -1,3 +1,4 @@
+// Mensagens
 class Message {
   constructor(text = '', created = Date.now()) {
     this.text = text;

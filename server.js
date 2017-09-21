@@ -5,7 +5,7 @@ const app = express();
 
 app.set('port', process.env.PORT || 8080);
 
-if (process.env.NODE_ENV === 'development'){
+if (process.env.NODE_ENV === 'dev'){
   const webpackConfig = require('./webpack.config.js');
   const webpack = require('webpack');
   const webpackMiddleware = require('webpack-dev-middleware');
