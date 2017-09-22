@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/Especializa/es6#readme",
   "devDependencies": {
+    "@types/webpack-env": "^1.13.1",
     "awesome-typescript-loader": "^3.2.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

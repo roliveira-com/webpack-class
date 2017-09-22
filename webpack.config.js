@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Uglify = require('uglifyjs-webpack-plugin');
 const Compress = require('compression-webpack-plugin');
-
 // inserindo plugin para separar codigo css em arquivo separado
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+
 const extractSass = new ExtractTextWebpackPlugin({
     filename: '[name].[contenthash:8].bundle.css',
     disable: false,
@@ -19,7 +19,7 @@ const minify = {
 
 const config = {
     entry: {
-        main: './app/index.js',
+        main: './app/index.ts',
         oldMessages: './app/old-messages.js',
     },
     output: {
@@ -60,7 +60,7 @@ const config = {
         // loaders: [
         rules: [
             {
-                use: 'html-es6-template-loader',
+                loader: 'html-es6-template-loader',
                 test: /\.html$/,
                 exclude(filePath) {
                     return filePath === path.join(__dirname, 'app', 'index.html');
@@ -80,6 +80,10 @@ const config = {
                         }],
                     ],
                 },
+            },
+            {
+                test: /\.ts$/,
+                use: 'awesome-typescript-loader',
             },
             {
                 // regex especificando que esta regra pode ser aplica tanto para arquivos .scss quanto .sass
