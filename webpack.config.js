@@ -20,7 +20,8 @@ const minify = {
 const config = {
     entry: {
         main: './app/index.ts',
-        oldMessages: './app/old-messages.js',
+        oldMessages: './app/old-messages.ts',
+        vendor: ['whatwg-fetch'],
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -28,8 +29,10 @@ const config = {
         //  config relativa ao webpack-dev-server
         publicPath: '/',
     },
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
     plugins: [
-        new Uglify(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
             filename: 'commons.[hash:8].bundle.js',
@@ -38,16 +41,19 @@ const config = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'app', 'index.html'),
             filename: 'index.html',
-            chunks: ['main', 'commons'],
+            chunks: ['main', 'commons', 'vendor'],
             minify,
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'app', 'old-messages.html'),
             filename: 'old-messages.html',
-            chunks: ['oldMessages', 'commons'],
+            chunks: ['oldMessages', 'commons', 'vendor'],
             minify,
         }),
         extractSass,
+        // new Uglify({
+        //     sourceMap: true,
+        // }),
         new Compress({
             asset: '[path].gz',
         }),

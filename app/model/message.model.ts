@@ -4,8 +4,10 @@ export default class Message {
   // public text: string;
   // private readonly created: number
 
+  //usando a sintaxe shorthand declarando
+  //propriedades direto no contrutor
   constructor(public text: string = '', 
-              private readonly created: number = Date.now()) {
+              public  readonly created: number = Date.now()) {
     this.text = text;
     this.created = created;
   }
